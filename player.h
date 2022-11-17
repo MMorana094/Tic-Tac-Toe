@@ -1,56 +1,30 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <iostream>
-#include <cstdlib>
-
 
 using namespace std;
 
-class player{
+class Player{
 	private:
-		string Name;
-		char Symbol;
-
-		friend class Cross;
-		friend class Circle;
+		string name;
+		char symbol;
 	public:
-		player(string name){
-			this->Name = name;
+		Player(string name){
+			this->name = name;
 		}
 
-		char getSymbol(){
-			return this->Symbol;
+		char getSymbol() const{
+			return this->symbol;
 		}
 
-		friend ostream& operator<<(ostream& os, player& obj){
-			os << "Player = " << obj.getName() << ", Symbol = " << obj.getSymbol() << endl;
-			return os;
-		}
-
-		void insertName(string name){
-			this->Name = name;
-		}
 
 		void insertSymbol(char simb){
-			this->Symbol = simb;
+			this->symbol = simb;
 		}
 
-		string getName(){
-			return this->Name;
+		string getName() const{
+			return this->name;
 		}
 };
 
-class Cross : public player{
-	public:
-		Cross(string name) : player(name){
-			insertSymbol('X');
-		}
-};
-
-class Circle : public player{
-	public:
-		Circle(string name) : player(name){
-			insertSymbol('O');
-		}
-};
 #endif
